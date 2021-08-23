@@ -36,7 +36,6 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello)); // 응답 본문 내용을 검증
     }
 
-
     @Test
     public void helloDto가_리턴된다() throws  Exception {
         String name = "hello";
@@ -50,6 +49,5 @@ public class HelloControllerTest {
                             .andExpect(jsonPath("$.name", is(name)))
                             .andExpect(jsonPath("$.amount", is(amount)));
         // why?? >> is 그냥 import가 되지 않음, 수기 작성시 가능
-
     }
 }
