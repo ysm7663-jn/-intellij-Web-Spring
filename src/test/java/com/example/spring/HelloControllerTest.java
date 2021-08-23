@@ -16,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // JUnit에 내장된 실행자 외의 다른 실행자를 실행 >> SpringRunner
 @WebMvcTest(controllers = HelloController.class)
 // Web에 집중시키는 Annotation
+// JPA 기능이 작동하지 않음
 // @Controller, ControllerAdvice 사용 가능
 // @Service, @Component, @Repository 사용 불가
 public class HelloControllerTest {
