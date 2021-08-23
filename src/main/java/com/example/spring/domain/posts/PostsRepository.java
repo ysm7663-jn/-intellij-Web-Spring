@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 // @Repository   필요 없음
 public interface PostsRepository extends JpaRepository<Posts, Long> {
-    //  Potst 클래스로 Database를 접근하게 해줄 Interface
+    // Potst 클래스로 Database를 접근하게 해줄 Interface
     // Mybatis 에선 Dao로 불림 (DB Layer)
     // JPA 에선 Repository
     // 형태 : JpaRepository<Entity 클래스, PK 타입>를 상속 >> 기본적인 CRUD 메소드가 자동 생성
