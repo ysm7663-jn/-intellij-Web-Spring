@@ -1,6 +1,7 @@
 package com.example.spring.web;
 
 import com.example.spring.service.posts.PostsService;
+import com.example.spring.web.dto.PostsResponseDto;
 import com.example.spring.web.dto.PostsSaveRequestDto;
 import com.example.spring.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,11 @@ public class PostsApiController {
     @PutMapping("/api/v1/posts/{id}") // 수정
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}") // 조회
+    public PostsResponseDto findById (@PathVariable Long id) {
+        return postsService.findById(id);
     }
 
 }
