@@ -15,7 +15,7 @@ import javax.persistence.*;
 // Setter 없이 insert는 어떻게?? >> 기본적으론 생성자를 통해 최종값을 채운 후 DB에 삽입, 값 변경이 필요한 경우 해당 이벤트에 맞는 public 메소드를 호출하여 변경
 // 이 강의에선 @Builder를 통해 제공되는 빌더 클래스를 사용
 
-public class Posts {
+public class Posts extends BaseTimeEntity {
 // DB의 테이블과 매칭될 클래스 (보통 Entity 클래스라고 부름)
 
     @Id // 해당 테이블의 PK 필드를 나타냄

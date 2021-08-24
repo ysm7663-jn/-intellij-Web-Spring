@@ -28,5 +28,4 @@ public abstract class BaseTimeEntity {
 }
 
 // Application에서 @EnableJpaAuditing 을 추가하여 JPA Auditing 활성화 시켜야 한다
-
-
+// Posts 클래스에서 BaseTimeEntity를 extends(상속) 해야 한다.
