@@ -3,7 +3,11 @@ var main = {
             var _this = this;
             $('#btn-save').on('click', function () {
                 _this.save();
+                });
+            $('#btn-update').on('click', function () {
+                _this.update();
             });
+
         },
         save : function () {
             var data = {
@@ -24,6 +28,39 @@ var main = {
                 }).fail(function (error) {
                 alert(JSON.stringify(error));
             });
+        },
+
+        update : function () {
+            var data = {
+                title: $('#title').val(),
+                content: $('#content').val()
+            };
+
+            var id = $('#id').val();
+
+            $.ajax({
+                type: 'PUT',
+                // HTTP Method : PUT
+                // PostsApiController에 이미 @PutMapping으로 선언했기 때문에 여기서도 PUT으로 해야 됨
+                // >> REST 규약
+                // create : POST
+                // Read : GET
+                // Update : PUT
+                // Delete : DELETE
+
+                url: '/api/v1/posts/' + id,
+                // 어느 게시글을 수정할건지 구분하기 위해 URL(/api/v1/posts/) 에 id를 추가
+
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            }).done(function () {
+                alert('글이 수정되었습니다.');
+                window.location.href = '/';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
+
     }
 };
 
