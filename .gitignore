@@ -1,4 +1,4 @@
 # Project exclude paths
 .gradle
 .idea
-.application-real-oauth.properties
+.application0oauth.properties
