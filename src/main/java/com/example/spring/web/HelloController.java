@@ -20,5 +20,4 @@ public class HelloController {
         return new HelloResponseDto(name, amount);
     }
     // @RequestParam : 외부에서 API로 넘긴 파라미터를 가져오는 에노테이션
-
 }
