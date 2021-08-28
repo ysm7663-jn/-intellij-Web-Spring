@@ -33,7 +33,6 @@ public class PostsApiController {
     @DeleteMapping("/api/v1/posts/{id}")  // 삭제
     public Long delete(@PathVariable Long id) {
         postsService.delete(id);
-
         return id;
     }
 }
