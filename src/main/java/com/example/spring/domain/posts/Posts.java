@@ -1,5 +1,6 @@
 package com.example.spring.domain.posts;
 
+import com.example.spring.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
