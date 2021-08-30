@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Role {
 
-    GEUST("ROLE_GUEST", "손님"),
+    // 각 사용자를 관리할 Enum 클래스
+
+    GUEST("ROLE_GUEST", "손님"),
     USER("ROLE_USER", "일반 사용자");
 
     // 스프링 시큐리티에서는 권한 코드에 항상 ROLE_ 이 앞에 있어야한다
