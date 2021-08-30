@@ -1,5 +1,7 @@
-package com.example.spring.domain.posts;
+package com.example.spring.domain;
 
+import com.example.spring.domain.posts.Posts;
+import com.example.spring.domain.posts.PostsRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
