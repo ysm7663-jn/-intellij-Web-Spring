@@ -1,7 +1,7 @@
-package com.example.spring.config.auth;
+package com.example.spring.config;
 
-import com.example.spring.config.auth.dto.OAuthAttributes;
-import com.example.spring.config.auth.dto.SessionUser;
+import com.example.spring.config.dto.OAuthAttributes;
+import com.example.spring.config.dto.SessionUser;
 import com.example.spring.domain.user.User;
 import com.example.spring.domain.user.UserRepository;
 

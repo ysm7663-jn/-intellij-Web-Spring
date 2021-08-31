@@ -1,4 +1,4 @@
-package com.example.spring.config.auth.dto;
+package com.example.spring.config.dto;
 
 import com.example.spring.domain.user.Role;
 import com.example.spring.domain.user.User;
