@@ -19,15 +19,18 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        // SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        // @LoginUser 로 대체
+
         // CustomOAuth2UserService 에서 로그인 성공 시 세션에 SessionUser 를 저장하도록 구성
         // 로그인 성공 시 httpSession.getAttribute("user") 에서 값을 가져올 수 있음
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("userImg", user.getPicture());
             // 세션에 저장된 값이 있을 때만 model 에 userName 으로 등록
             // 세션에 저장된 값이 없을 경우, model 에 아무런 값이 없는 상태이니 로그인 버튼이 보이게 된다.
         }
