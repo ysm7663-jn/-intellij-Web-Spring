@@ -1,4 +1,4 @@
-package com.example.spring.config;
+package com.example.spring.config.auth;
 
 import com.example.spring.domain.user.Role;
 import lombok.RequiredArgsConstructor;
