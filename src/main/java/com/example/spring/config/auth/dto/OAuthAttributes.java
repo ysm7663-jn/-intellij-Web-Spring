@@ -1,4 +1,4 @@
-package com.example.spring.config.dto;
+package com.example.spring.config.auth.dto;
 
 import com.example.spring.domain.user.Role;
 import com.example.spring.domain.user.User;
@@ -67,7 +67,5 @@ public class OAuthAttributes {
                 .picture(picture)
                 .role(Role.GUEST)
                 .build();
-
     }
-
 }
