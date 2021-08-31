@@ -1,7 +1,7 @@
-package com.example.spring.config;
+package com.example.spring.config.auth;
 
-import com.example.spring.config.dto.OAuthAttributes;
-import com.example.spring.config.dto.SessionUser;
+import com.example.spring.config.auth.dto.OAuthAttributes;
+import com.example.spring.config.auth.dto.SessionUser;
 import com.example.spring.domain.user.User;
 import com.example.spring.domain.user.UserRepository;
 
@@ -25,8 +25,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     private final UserRepository userRepository;
     private final HttpSession httpSession;
-
-    // 구글 사용자 정보가 업데이트 되었을 때를 대비하여 update 기능도 구현 >> 사용자의 이름, 프로필 사진이 변경되면 User 엔티티에도 반영
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -57,6 +55,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                 attributes.getNameAttributeKey());
     }
 
+    // 구글 사용자 정보가 업데이트 되었을 때를 대비하여 update 기능도 구현 >> 사용자의 이름, 프로필 사진이 변경되면 User 엔티티에도 반영
     private User saveOrUpdate(OAuthAttributes attributes) {
         User user = userRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
