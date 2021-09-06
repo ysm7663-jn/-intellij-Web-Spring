@@ -1,6 +1,5 @@
-package com.example.spring.config;
+package com.example.spring.auth;
 
-import com.example.spring.auth.CustomOAuth2UserService;
 import com.example.spring.domain.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
