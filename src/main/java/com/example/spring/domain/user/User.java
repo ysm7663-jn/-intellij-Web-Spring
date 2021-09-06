@@ -31,6 +31,8 @@ public class User {
     private String picture;
 
     @Enumerated(EnumType.STRING)
+    // JPA 로 데이터베이스로 저장할 때 Enum 값을 어떤 형태로 저장할지를 결정, 기본적으로 int 로 된 숫자가 저장됨
+    // 숫자로 저아되면 데이터베이스로 확인할 때 그 값이 무슨 코드를 의미하는지 알 수가 없다 >> 문자열로 저장될 수 있도록 선언
     @Column(nullable = false)
     private Role role;
 
