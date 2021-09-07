@@ -24,10 +24,11 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
-
+        // CustomOAuth2UserService 에서 로그인 성공 시 세션에 SessionUser 를 저장하도록 구성 >> 로그인 성공 시 httpSession.getAttribute("user") 에서 값을 가져옴
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
+        // 세션에 저자오딘 값이 있을 때만 model 에 userName 으로 등록, 세션에 저장된 값이 없을 경우 model 에 아무 값이 없는 상태이니 로그인 버튼이 보이게 된다
         return "index";
     }
 
