@@ -1,4 +1,4 @@
-package com.example.spring.auth;
+package com.example.spring.config.auth;
 
 import com.example.spring.domain.user.Role;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable().headers().frameOptions().disable() // 2
                 .and()
                 .authorizeRequests() // 3
-                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
+                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name()) // 4
                 .anyRequest().authenticated() // 5
                 .and()
