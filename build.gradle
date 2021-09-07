@@ -26,11 +26,16 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
+    // mustache 를 사용하기 위한 의존성 추가
 
-    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     // 소셜 로그인 등  클라이언트 입장에서 소셜 기능 구현 시 필요한 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.security:spring-security-test'
+    // Security 구현을 위한 의존성 추가
+
+    implementation 'org.springframework.session:spring-session-jdbc'
+    // MySQL 을 사용하기 위한 의존성 추가
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
