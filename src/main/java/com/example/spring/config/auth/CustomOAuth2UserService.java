@@ -51,7 +51,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         return userRepository.save(user);
     }
-
 }
 
 // 1 : 현재 로그인 진행 중인 서비스를 구분하는 코드, 구글 / 네이버 로그인 구분을 위해 사용

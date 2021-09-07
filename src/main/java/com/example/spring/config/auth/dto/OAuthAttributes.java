@@ -26,6 +26,7 @@ public class OAuthAttributes {
 
     // 1
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+
         return ofGoogle(userNameAttributeName, attributes);
     }
 
@@ -38,6 +39,7 @@ public class OAuthAttributes {
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }
+
     /*
     private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
         Map<String, Object> response = (Map<String, Object>) attributes.get("response");
