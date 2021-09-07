@@ -1,7 +1,7 @@
-package com.example.spring.auth;
+package com.example.spring.config.auth;
 
-import com.example.spring.auth.dto.OAuthAttributes;
-import com.example.spring.auth.dto.SessionUser;
+import com.example.spring.config.auth.dto.OAuthAttributes;
+import com.example.spring.config.auth.dto.SessionUser;
 import com.example.spring.domain.user.User;
 import com.example.spring.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-        OAuth2UserService delegate = new DefaultOAuth2UserService();
+        OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
         String registrationId = userRequest.getClientRegistration().getRegistrationId(); // 1
