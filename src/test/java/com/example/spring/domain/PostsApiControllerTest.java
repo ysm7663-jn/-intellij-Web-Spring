@@ -51,6 +51,7 @@ public class PostsApiControllerTest {
     private MockMvc mvc;
 
     @Before
+    // 매번 테스트가 시작되기 전에 MockMvc 인스턴스를 생성
     public void setup() {
         mvc = MockMvcBuilders
                 .webAppContextSetup(context)
@@ -85,6 +86,9 @@ public class PostsApiControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(new ObjectMapper().writeValueAsString(requestDto)))
                 .andExpect(status().isOk());
+        // mvc.perform : 생성된 MockMvc 를 통해 API 를 테스트 한다
+        // 본문 영역은 문자열로 표현하기 위해 ObjectMapper 를 통해 문자열 JSON 으로 변환한다.
+
 
         // then
         // oauth 사용전
