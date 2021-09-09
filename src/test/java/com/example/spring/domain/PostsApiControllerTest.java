@@ -66,6 +66,7 @@ public class PostsApiControllerTest {
     @Test
     @WithMockUser(roles="USER")
     // 인증된 가짜 사용자를 만들어서 사용, roles 에 권한을 추가할 수 있다, 어노테이션으로 인해 ROLE_USER 권한을 가진 사용자가 API 를 요청하는 것 과 동일한 효과를 가지게 된다
+    // 해당 에노테이션은 이렇게만 하면 작동하지 않는다 >> MockMvc 에서만 작동하기 때문  >>> PostsApiControllerTest 에서 수정
     public void Posts_등록된다() throws Exception {
         // given
         String title = "title";
@@ -96,6 +97,7 @@ public class PostsApiControllerTest {
     }
 
     @Test
+    @WithMockUser(roles="USER")
     public void Posts_수정된다() throws Exception {
         // given
         Posts savedPosts = postsRepository.save(Posts.builder()
