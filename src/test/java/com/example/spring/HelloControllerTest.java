@@ -18,8 +18,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 // JUnit에 내장된 실행자 외의 다른 실행자를 실행 >> SpringRunner
+
+// security 설정 후
 @WebMvcTest(controllers = HelloController.class,
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)})
+// CustomOAuth2UserService 를 스캔하지 않기 때문에 오류 발생
+// @Controller, ControllerAdvice 사용 가능
+// @Service, @Component, @Repository 사용 불가
+
+// >> 스캔 대상에서 SecurityConfig 를 제거 ( excludeFilters = {@ComponentScan 부분 ... )
+// 가짜 사용자를 생성
+
+
+
+// security 설정 전
+// @WebMvcTest(controllers = HelloController.class)
 // Web에 집중시키는 Annotation
 // JPA 기능이 작동하지 않음
 // @Controller, ControllerAdvice 사용 가능
@@ -50,12 +63,22 @@ public class HelloControllerTest {
         int amount = 1000;
 
         mvc.perform(
-                get("/hello/dto")
-                        .param("name", name)
-                        .param("amount", String.valueOf(amount)))
-                            .andExpect(status().isOk())
-                            .andExpect(jsonPath("$.name", is(name)))
-                            .andExpect(jsonPath("$.amount", is(amount)));
+                        get("/hello/dto")
+                                .param("name", name)
+                                .param("amount", String.valueOf(amount)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
         // why?? >> is 그냥 import가 되지 않음, 수기 작성시 가능
     }
 }
+
+/*
+    java.lang.IllegalArgumentException: At least one JPA metamodel must be present! 오류 발생
+
+    원인
+        1. @EnableJpaAuditing 로 인해 발생 >> 해당 에노테이션을 사용하기 위해선 최소 하나의 @Entity 클래스가 필요 (@WebMvcTest 이다 보니 존재하지 않음)
+        2. @EnableJapAuditing 가 @SpringBootApplication 와 함께 있다보니 @WebMvcTest 에서도 스캔하게 되어있다 >> 분리 작업 필요
+
+    해결 : Application 에서 @EnableJpaAuditing 을 제거 >> config 패키지에 JpaConfig 를 생성
+ */
