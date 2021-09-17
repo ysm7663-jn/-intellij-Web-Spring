@@ -12,5 +12,6 @@ public class Application {
         SpringApplication.run(Application.class, args);
         // SpringApplication : WAS실행 (애플리케이션 실행시 내부에서 WAS를 실행하는 것을 의미 >> Tomcat 설치 필요X >> Jar 파일 실행)
         // 내장 WAS 사용하는 이유 : 언제 어디서나 같은 환경에서 스프링 부트를 배포
+
     }
 }
