@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+
 
 repositories {
     mavenCentral()
@@ -19,6 +19,7 @@ dependencies {
     implementation 'org.projectlombok:lombok'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.projectlombok:lombok:1.18.20'
     // implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     // Spring Data Jpa 추상화 라이브러리, JPA 관련 라이브러리들의 버전을 관린
     runtimeOnly 'com.h2database:h2:1.4.197'
@@ -38,7 +39,6 @@ dependencies {
     // MySQL 을 사용하기 위한 의존성 추가
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 }
 
 test {
